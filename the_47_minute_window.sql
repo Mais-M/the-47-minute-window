@@ -1,5 +1,5 @@
 CREATE DATABASE thief_investigation;
-
+ 
 USE thief_investigation;
 
 CREATE TABLE transactions (
