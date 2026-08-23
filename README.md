@@ -41,6 +41,13 @@ access_logs — authentication and privileged system events
 permission_changes — historical privilege grants and revocations
 devices — corporate and personal device information
 interview_claims — fictional statements describing where suspects claimed to be during the incident
+
+### Database & Transaction Setup
+
+The investigation begins by creating the MySQL database and the primary transactions table used to store the synthetic financial evidence.
+
+![Database and transaction setup](screenshots/00_database_transactions_setup.png)
+
 Investigation Process
 1. Detecting the Theft
 
@@ -155,6 +162,9 @@ The system environment may have been prepared months earlier.
 This discovery gives the project its name:
 
 The 47-Minute Window
+
+![47-minute permission anomaly](screenshots/03_permission_anomaly.png)
+
 Device Evidence
 
 The investigation then connects system-access logs with device records.
@@ -172,6 +182,8 @@ and:
 is_corporate = 0
 
 This means sensitive activity was associated with a non-corporate device, creating another important anomaly.
+
+![Device evidence](screenshots/04_device_evidence.png)
 
 Human Claims vs. Machine Evidence
 
@@ -197,11 +209,15 @@ vs.
 
 Recorded System Evidence
 
+![Alibi comparison query](screenshots/05_alibi_comparison_query.png)
+
 SQL joins are used to identify cases where a suspect's claimed timeline conflicts with verified system events.
 
 Final Timeline Reconstruction
 
 The final stage combines access events and financial transactions into a single chronological timeline.
+
+![Final timeline query](screenshots/06_final_timeline_query.png)
 
 The result looks like this:
 
@@ -242,6 +258,8 @@ $100,000,000 → ACC_5541
 
 02:24:44
 $100,000,000 → ACC_4410
+
+![Final investigation timeline](screenshots/06_final_timeline.png)
 
 The database does not independently establish criminal guilt.
 
