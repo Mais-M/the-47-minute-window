@@ -161,11 +161,11 @@ The system environment may have been prepared months earlier.
 
 This discovery gives the project its name:
 
-The 47-Minute Window
+# The 47-Minute Window
 
 ![47-minute permission anomaly](screenshots/03_permission_anomaly.png)
 
-Device Evidence
+## Device Evidence
 
 The investigation then connects system-access logs with device records.
 
