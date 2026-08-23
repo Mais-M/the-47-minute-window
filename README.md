@@ -1,6 +1,6 @@
-The 47-Minute Window
+# The 47-Minute Window
 A Fictional MySQL Financial Forensics Investigation
-Project Overview
+## Project Overview
 
 The 47-Minute Window is a fictional financial-forensics investigation built with MySQL.
 
@@ -14,7 +14,7 @@ The central investigation asks:
 
 Can transaction data and system-access evidence be combined to reconstruct the theft and identify the strongest insider-risk indicators?
 
-The Scenario
+## The Scenario
 
 At 02:13:07, the first suspicious transfer leaves RESERVE_001.
 
@@ -30,7 +30,7 @@ The investigation therefore develops around two questions:
 
 Where did the money go?
 Who had the access necessary to authorize the activity?
-Dataset
+## Dataset
 
 This project uses a completely synthetic and fictional dataset created for educational and portfolio purposes.
 
@@ -48,8 +48,8 @@ The investigation begins by creating the MySQL database and the primary transact
 
 ![Database and transaction setup](screenshots/00_database_transactions_setup.png)
 
-Investigation Process
-1. Detecting the Theft
+## Investigation Process
+### 1. Detecting the Theft
 
 The first stage identifies all transactions originating from the protected reserve account.
 
@@ -61,7 +61,7 @@ $487,000,000
 
 left the reserve account during the incident window.
 
-2. Measuring the Theft Window
+### 2. Measuring the Theft Window
 
 The next step compares the timestamp of the first suspicious transaction with the final transaction.
 
@@ -71,13 +71,13 @@ The investigation now has both:
 
 the total financial loss
 the critical time window
-3. Identifying Initial Recipient Accounts
+### 3. Identifying Initial Recipient Accounts
 
 The transactions are grouped by destination account to identify where the largest portions of the money were initially transferred.
 
 This produces a list of high-value recipient accounts that would become priority entities for further investigation.
 
-4. Tracing Secondary Transfers
+### 4. Tracing Secondary Transfers
 
 The next stage investigates whether the original recipient accounts kept the money.
 
@@ -89,7 +89,7 @@ RESERVE_001 → Recipient Account → Payment Service → Exchange
 
 This suggests that the first recipient accounts may have been temporary staging points rather than final destinations.
 
-5. Reconstructing the Money Trail
+### 5. Reconstructing the Money Trail
 
 A recursive Common Table Expression (WITH RECURSIVE) is used to follow the movement of funds across multiple transaction hops.
 
@@ -101,7 +101,7 @@ RESERVE_001 → ACC_8821 → PAYMENT_193 → EXCHANGE_72
 
 At this stage, the investigation changes from simply identifying suspicious transactions to reconstructing an entire financial trail.
 
-From the Money to the People
+## From the Money to the People
 
 Tracing the stolen money answers only one part of the investigation.
 
@@ -111,7 +111,7 @@ Who had access to the system immediately before the theft?
 
 The financial evidence is therefore combined with authentication and system-access records.
 
-System Access Analysis
+## System Access Analysis
 
 Access logs are examined during the minutes surrounding the first transfer.
 
@@ -135,7 +135,7 @@ the first $120 million transfer also leaves the reserve account.
 
 The timing creates a significant correlation between privileged system activity and the beginning of the financial theft.
 
-The 47-Minute Discovery
+## The 47-Minute Discovery
 
 The investigation then moves backward in time.
 
@@ -185,7 +185,7 @@ This means sensitive activity was associated with a non-corporate device, creati
 
 ![Device evidence](screenshots/04_device_evidence.png)
 
-Human Claims vs. Machine Evidence
+## Human Claims vs. Machine Evidence
 
 The fictional investigation also includes interview statements.
 
@@ -213,7 +213,7 @@ Recorded System Evidence
 
 SQL joins are used to identify cases where a suspect's claimed timeline conflicts with verified system events.
 
-Final Timeline Reconstruction
+## Final Timeline Reconstruction
 
 The final stage combines access events and financial transactions into a single chronological timeline.
 
@@ -265,7 +265,7 @@ The database does not independently establish criminal guilt.
 
 Instead, it reveals a series of correlated indicators that would justify deeper investigation.
 
-Key Findings
+## Key Findings
 
 The analysis identifies several major anomalies:
 
@@ -278,7 +278,7 @@ The unusual permission window lasted only 47 minutes.
 Sensitive activity is associated with a personal device.
 A fictional suspect statement conflicts with recorded system events.
 Combining financial and access data produces a much stronger investigative picture than examining either dataset independently.
-SQL Techniques Demonstrated
+## SQL Techniques Demonstrated
 
 This project demonstrates the use of:
 
@@ -306,11 +306,11 @@ Recursive Common Table Expressions (CTEs)
 Multi-table evidence correlation
 Transaction tracing
 Timeline reconstruction
-Tools
+## Tools
 MySQL 8.0+
 MySQL Workbench
 GitHub
-Repository Structure
+## Repository Structure
 the-47-minute-window/
 │
 ├── README.md
@@ -318,7 +318,7 @@ the-47-minute-window/
 
 The SQL file contains the complete fictional investigation, including database creation, synthetic data, transaction analysis, access-log analysis, device correlation, permission analysis, and final timeline reconstruction.
 
-Project Purpose
+## Project Purpose
 
 This project was created as a portfolio case study demonstrating how SQL can be used not only for traditional data analysis, but also for investigative reasoning.
 
@@ -336,7 +336,7 @@ Interview timelines provide claims that can be compared with machine-recorded ev
 
 When these datasets are joined together, patterns emerge that would be difficult to identify from any single table.
 
-Disclaimer
+## Disclaimer
 
 This project is entirely fictional.
 
